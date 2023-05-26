@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.haroun_dominique_ex3tadultos.MenuScreen
 import com.example.haroun_dominique_ex3tadultos.ui.ej01.elements.Ej01
 import com.example.haroun_dominique_ex3tadultos.ui.ej02.elements.Ej02
+import com.example.haroun_dominique_ex3tadultos.ui.ej03.view.Ej03
 
 @Composable
 fun Navigation() {
@@ -15,6 +16,6 @@ fun Navigation() {
         composable(route = Screens.MainScreen.route) { MenuScreen(navController) }
         composable(route = Screens.Ejercicio01.route) { Ej01() }
         composable(route = Screens.Ejercicio02.route) { Ej02() }
-        composable(route = Screens.Ejercicio03.route) { /*Ej02Screen()*/ }
+        composable(route = Screens.Ejercicio03.route) { Ej03() }
     }
 }

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Haroun_Dominique_ex3tAdultos</string>
+    <string name="confirm">confirm</string>
+    <string name="cancel">cancel</string>
+    <string name="delete_products">delete_products</string>
+    <string name="title">title</string>
+    <string name="select_all">select_all</string>
+    <string name="delete">delete</string>
+    <string name="add">add</string>
+    <string name="product_already_exists">product_already_exists</string>
+    <string name="close">close</string>
+    <string name="add_product">add_product</string>
 </resources>
