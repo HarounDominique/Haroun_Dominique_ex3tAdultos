@@ -52,17 +52,12 @@ fun Ej02(modifier: Modifier = Modifier) {
 
             val loginViewModel : LoginViewModel = viewModel()
 
-            if (!loginViewModel.loginScreen) {
+            if (!loginViewModel.loginScreen && (loginViewModel.userName == "pepe" && loginViewModel.userPassword == "abc123.")) {
                 Column(
                     modifier = Modifier.padding(it),
-                    verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    if (loginViewModel.userName == "pepe" && loginViewModel.userPassword == "abc123.") {
-                        Text(text = "Sesión iniciada con éxito.")
-                    } else {
-                        Text(text = "Usuario o contraseña incorrectos.")
-                    }
+                    Text(text = "Sesión iniciada con éxito.")
                 }
             } else {
                 Column(
@@ -74,13 +69,21 @@ fun Ej02(modifier: Modifier = Modifier) {
                         modifier = Modifier.fillMaxWidth()
                             .padding(12.dp)) {
                         //Text(text = "Usuario: ")
-                        OutlinedTextField(label = { Text("Usuario") },value = loginViewModel.userName, onValueChange = { loginViewModel.changeUserName(it) })
+                        OutlinedTextField(label = { Text("Usuario") },
+                            value = loginViewModel.userName,
+                            onValueChange = { loginViewModel.changeUserName(it)},
+                            isError = (!loginViewModel.loginScreen)
+                        )
                     }
                     Row(horizontalArrangement = Arrangement.Center,
                         modifier = Modifier.fillMaxWidth()
                             .padding(12.dp)) {
                         //Text(text = "Contraseña: ")
-                        OutlinedTextField(visualTransformation = PasswordVisualTransformation(), label = { Text("Contraseña") },value = loginViewModel.userPassword, onValueChange = { loginViewModel.changeUserPassword(it) })
+                        OutlinedTextField(visualTransformation = PasswordVisualTransformation(),
+                            label = { Text("Contraseña") },
+                            value = loginViewModel.userPassword,
+                            onValueChange = { loginViewModel.changeUserPassword(it) },
+                            isError = (!loginViewModel.loginScreen))
                     }
                     Row(horizontalArrangement = Arrangement.Center,
                         modifier = Modifier.fillMaxWidth()
